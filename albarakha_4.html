@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al Barakha Medical Tourism – Bangalore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A85C;
+    --gold-light: #E8D5A3;
+    --gold-dark: #8B6E35;
+    --navy: #0F1C2E;
+    --navy-mid: #1A2E45;
+    --navy-light: #243D5A;
+    --cream: #F9F5EF;
+    --cream-dark: #EDE6D8;
+    --text-primary: #0F1C2E;
+    --text-secondary: #4A5568;
+    --text-muted: #718096;
+    --white: #FFFFFF;
+    --teal: #1D7A6B;
+    --teal-light: #E1F5EE;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    color: var(--text-primary);
+    background: var(--cream);
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(15,28,46,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,92,0.25);
+    padding: 0 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 70px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .nav-logo span { color: var(--white); font-weight: 400; font-size: 0.9rem; display: block; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2rem; align-items: center; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none; font-size: 0.85rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy) !important;
+    padding: 8px 20px; border-radius: 2px;
+    font-weight: 500; letter-spacing: 0.06em;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0F1C2E 0%, #1A2E45 50%, #0F2A1E 100%);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 100px 4rem 4rem;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A85C' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-content { max-width: 680px; position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,168,92,0.15);
+    border: 1px solid rgba(201,168,92,0.4);
+    color: var(--gold-light); font-size: 0.75rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 100px;
+    margin-bottom: 2rem;
+  }
+  .hero-badge::before { content: '✦'; font-size: 8px; }
+  .hero h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 600; line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero p {
+    font-size: 1.1rem; line-height: 1.8;
+    color: rgba(255,255,255,0.65);
+    max-width: 520px; margin-bottom: 2.5rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 14px 32px; border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    text-decoration: none; display: inline-block;
+    transition: all 0.2s; border-radius: 2px;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    padding: 14px 32px; border: 1px solid rgba(255,255,255,0.3); cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem; font-weight: 400;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    text-decoration: none; display: inline-block;
+    transition: all 0.2s; border-radius: 2px;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats {
+    display: flex; gap: 3rem; margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(201,168,92,0.2);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; font-weight: 600; color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 4px; letter-spacing: 0.06em; }
+  .hero-visual {
+    position: absolute; right: 4rem; top: 50%;
+    transform: translateY(-50%);
+    width: 380px; z-index: 1;
+    display: grid; gap: 16px;
+  }
+  .hero-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,168,92,0.2);
+    border-radius: 8px; padding: 20px 24px;
+    backdrop-filter: blur(10px);
+    display: flex; align-items: center; gap: 16px;
+  }
+  .hero-card-icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(201,168,92,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .hero-card h4 { color: var(--white); font-family: 'DM Sans'; font-size: 0.9rem; font-weight: 500; }
+  .hero-card p { color: rgba(255,255,255,0.5); font-size: 0.78rem; margin-top: 2px; }
+
+  /* SECTION BASE */
+  section { padding: 90px 4rem; }
+  .section-label {
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold-dark); font-weight: 500;
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 1rem;
+  }
+  .section-label::after { content: ''; flex: 0 0 32px; height: 1px; background: var(--gold-dark); }
+  .section-title {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 600; line-height: 1.15;
+    color: var(--navy); margin-bottom: 1.25rem;
+  }
+  .section-title em { color: var(--teal); font-style: italic; }
+  .section-sub {
+    font-size: 1rem; line-height: 1.8;
+    color: var(--text-secondary); max-width: 560px;
+  }
+
+  /* ABOUT */
+  #about { background: var(--white); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6rem; align-items: center;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .about-text .section-title { margin-top: 0.75rem; }
+  .about-features { margin-top: 2.5rem; display: grid; gap: 1.25rem; }
+  .about-feature {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 16px; border-radius: 6px;
+    border: 1px solid var(--cream-dark);
+    background: var(--cream);
+    transition: border-color 0.2s;
+  }
+  .about-feature:hover { border-color: var(--gold-light); }
+  .about-feat-icon {
+    width: 36px; height: 36px; border-radius: 6px;
+    background: var(--navy); display: flex; align-items: center;
+    justify-content: center; font-size: 1rem; flex-shrink: 0;
+  }
+  .about-feat-title { font-weight: 500; font-size: 0.9rem; margin-bottom: 2px; }
+  .about-feat-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+  .about-visual {
+    position: relative;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+    border-radius: 12px; padding: 48px;
+    color: var(--white); overflow: hidden;
+    min-height: 480px; display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .about-visual::before {
+    content: '✦';
+    position: absolute; top: -30px; right: -20px;
+    font-size: 200px; color: rgba(255,255,255,0.03);
+    line-height: 1;
+  }
+  .about-visual-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-style: italic;
+    line-height: 1.4; color: var(--gold-light);
+    margin-bottom: 1rem; position: relative; z-index: 1;
+  }
+  .about-visual-attr {
+    font-size: 0.8rem; color: rgba(255,255,255,0.6);
+    letter-spacing: 0.08em; position: relative; z-index: 1;
+  }
+  .about-dots {
+    display: flex; gap: 8px; margin-bottom: 1.5rem;
+    position: relative; z-index: 1;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); opacity: 0.4; }
+  .dot:first-child { opacity: 1; }
+
+  /* SERVICES */
+  #services { background: var(--cream); }
+  .services-header { max-width: 580px; margin-bottom: 4rem; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; max-width: 1200px;
+  }
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 10px; padding: 28px 24px;
+    transition: all 0.25s; cursor: default;
+    position: relative; overflow: hidden;
+  }
+  .service-card::after {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; right: 0; height: 3px;
+    background: var(--gold); transform: scaleX(0);
+    transform-origin: left; transition: transform 0.3s;
+  }
+  .service-card:hover { border-color: var(--gold-light); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(15,28,46,0.08); }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+  .service-title { font-family: 'DM Sans'; font-weight: 500; font-size: 0.95rem; margin-bottom: 8px; color: var(--navy); }
+  .service-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* HOSPITALS */
+  #hospitals { background: var(--navy); }
+  #hospitals .section-label { color: var(--gold-light); }
+  #hospitals .section-label::after { background: var(--gold-light); }
+  #hospitals .section-title { color: var(--white); }
+  #hospitals .section-sub { color: rgba(255,255,255,0.55); }
+  .hospitals-header { max-width: 580px; margin-bottom: 4rem; }
+  .hospitals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px; max-width: 1200px; margin-bottom: 3rem;
+  }
+  .hospital-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,92,0.2);
+    border-radius: 8px; padding: 24px;
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .hospital-card:hover {
+    background: rgba(201,168,92,0.08);
+    border-color: rgba(201,168,92,0.5);
+  }
+  .hospital-spec {
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 6px;
+  }
+  .hospital-name { color: var(--white); font-weight: 500; font-size: 0.95rem; }
+  .hospital-type {
+    display: inline-block; margin-top: 10px;
+    font-size: 0.7rem; color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.06);
+    border-radius: 100px; padding: 3px 10px;
+  }
+  .book-banner {
+    background: var(--gold);
+    border-radius: 10px; padding: 36px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 1200px; gap: 2rem; flex-wrap: wrap;
+  }
+  .book-banner h3 {
+    color: var(--navy); font-size: 1.8rem; font-weight: 600;
+    line-height: 1.2;
+  }
+  .book-banner p { color: rgba(15,28,46,0.65); font-size: 0.9rem; margin-top: 6px; }
+  .btn-navy {
+    background: var(--navy); color: var(--gold);
+    padding: 14px 32px; border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    text-decoration: none; display: inline-block;
+    transition: all 0.2s; border-radius: 2px;
+    white-space: nowrap;
+  }
+  .btn-navy:hover { background: var(--navy-mid); }
+
+  /* CONTACT */
+  #contact { background: var(--cream); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: 6rem; align-items: start;
+    max-width: 1200px;
+  }
+  .contact-info h2 { margin-top: 0.75rem; margin-bottom: 1rem; }
+  .contact-methods { margin-top: 2.5rem; display: grid; gap: 16px; }
+  .contact-method {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 18px; border-radius: 8px;
+    border: 1px solid var(--cream-dark);
+    background: var(--white);
+  }
+  .contact-method-icon {
+    width: 38px; height: 38px; border-radius: 6px;
+    background: var(--navy); display: flex; align-items: center;
+    justify-content: center; font-size: 1rem; flex-shrink: 0;
+  }
+  .contact-method-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 3px; }
+  .contact-method-value { font-weight: 500; font-size: 0.9rem; color: var(--navy); }
+  .contact-form {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 12px; padding: 40px;
+  }
+  .contact-form h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; margin-bottom: 24px; color: var(--navy);
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%; padding: 11px 14px;
+    border: 1px solid var(--cream-dark);
+    border-radius: 4px; font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; color: var(--text-primary);
+    background: var(--cream); outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-submit {
+    width: 100%; padding: 14px;
+    background: var(--navy); color: var(--gold);
+    border: none; border-radius: 4px; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .form-submit:hover { background: var(--navy-mid); }
+  .form-success {
+    display: none; text-align: center; padding: 20px;
+    color: var(--teal); font-size: 1rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 50px 4rem 30px;
+    border-top: 1px solid rgba(201,168,92,0.2);
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 4rem; margin-bottom: 3rem;
+    max-width: 1200px;
+  }
+  .footer-brand p {
+    color: rgba(255,255,255,0.45); font-size: 0.85rem;
+    line-height: 1.7; margin-top: 12px; max-width: 280px;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600; color: var(--gold);
+  }
+  .footer-col h4 {
+    color: rgba(255,255,255,0.5); font-family: 'DM Sans';
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .footer-col ul { list-style: none; display: grid; gap: 8px; }
+  .footer-col ul a { color: rgba(255,255,255,0.6); font-size: 0.875rem; text-decoration: none; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 1200px;
+  }
+  .footer-bottom p { color: rgba(255,255,255,0.35); font-size: 0.8rem; }
+
+  /* WHATSAPP FLOAT */
+  .whatsapp-float {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    background: #25D366; color: white;
+    width: 58px; height: 58px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; text-decoration: none;
+    box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+    transition: transform 0.2s;
+  }
+  .whatsapp-float:hover { transform: scale(1.1); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content { animation: fadeUp 0.8s ease both; }
+  .hero-visual { animation: fadeUp 0.8s 0.3s ease both; }
+
+  @media (max-width: 1024px) {
+    nav { padding: 0 2rem; }
+    section { padding: 70px 2rem; }
+    .hero { padding: 100px 2rem 4rem; }
+    .hero-visual { display: none; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .hospitals-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+  @media (max-width: 640px) {
+    nav .nav-links { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .hospitals-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+    .book-banner { flex-direction: column; text-align: center; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <div>
+      Al Barakha
+      <span>Medical Tourism</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#hospitals">Hospitals</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://forms.gle/QcHp1kU2881iScAPA" target="_blank" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Bangalore, India · Est. 2024</div>
+    <h1>
+      World-Class Healthcare,<br>
+      <em>Guided Every Step</em>
+    </h1>
+    <p>We connect international patients with India's finest hospitals and specialists — handling everything from visa and travel to accommodation and translation.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Request a Consultation</a>
+      <a href="#hospitals" class="btn-outline">Our Partner Hospitals</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">14+</div>
+        <div class="stat-label">Partner Specialists</div>
+      </div>
+      <div>
+        <div class="stat-num">8</div>
+        <div class="stat-label">Core Services</div>
+      </div>
+      <div>
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Patient Support</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-card-icon">🏥</div>
+      <div>
+        <h4>Top-Tier Hospitals</h4>
+        <p>Fortis, Sparsh, Sakra & more</p>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-icon">✈️</div>
+      <div>
+        <h4>Full Travel Support</h4>
+        <p>Flights, visa, accommodation</p>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-icon">🌐</div>
+      <div>
+        <h4>Language Assistance</h4>
+        <p>Drivers & translators provided</p>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-icon">💱</div>
+      <div>
+        <h4>Foreign Exchange</h4>
+        <p>Convenient currency services</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">Your Trusted <em>Medical Tourism</em> Partner in India</h2>
+      <p class="section-sub">Al Barakha Tours & Travels helps international patients navigate India's world-class healthcare system with confidence, comfort, and complete support.</p>
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="about-feat-icon">🩺</div>
+          <div>
+            <div class="about-feat-title">Expert Hospital Coordination</div>
+            <div class="about-feat-desc">We connect you with leading specialists across neurology, cardiology, orthopaedics, oncology, and more.</div>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feat-icon">📋</div>
+          <div>
+            <div class="about-feat-title">End-to-End Assistance</div>
+            <div class="about-feat-desc">From your first enquiry to your safe return home — visa, travel, accommodation, and aftercare all arranged.</div>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feat-icon">🤝</div>
+          <div>
+            <div class="about-feat-title">Personalised Care</div>
+            <div class="about-feat-desc">Every patient journey is unique. We tailor every detail to your medical needs and personal comfort.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="about-dots">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+      <div class="about-visual-quote">
+        "Making your medical journey safe, easy, and comfortable — that is our purpose."
+      </div>
+      <div class="about-visual-attr">AL BARAKHA TOURS & TRAVELS · BANGALORE</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Complete <em>Healthcare</em> Travel Services</h2>
+    <p class="section-sub">Everything you need for a smooth, stress-free medical journey — arranged and managed by our expert team.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">🩺</span>
+      <div class="service-title">Doctor Consultations</div>
+      <div class="service-desc">Appointments with top specialists across all major medical disciplines.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🏨</span>
+      <div class="service-title">Hotel Bookings</div>
+      <div class="service-desc">Comfortable hotels near your hospital, for every budget.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🏠</span>
+      <div class="service-title">Service Apartments</div>
+      <div class="service-desc">1, 2 & 3 BHK apartments for longer stays with family.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">✈️</span>
+      <div class="service-title">Flight Booking</div>
+      <div class="service-desc">Domestic and international flights arranged on your behalf.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📄</span>
+      <div class="service-title">Visa Assistance</div>
+      <div class="service-desc">Medical visa guidance and documentation support for international patients.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🚕</span>
+      <div class="service-title">Taxi & Transport</div>
+      <div class="service-desc">Reliable airport pickups and hospital transfers across Bangalore.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌐</span>
+      <div class="service-title">Language Support</div>
+      <div class="service-desc">Multilingual drivers and professional interpreters for your appointments.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💱</span>
+      <div class="service-title">Foreign Exchange</div>
+      <div class="service-desc">Convenient currency exchange services for visiting patients.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOSPITALS -->
+<section id="hospitals">
+  <div class="hospitals-header">
+    <div class="section-label">Our Network</div>
+    <h2 class="section-title">Partner Hospitals <em>&amp; Specialists</em></h2>
+    <p class="section-sub">We work with Bangalore's finest hospitals and doctors across every major specialty.</p>
+  </div>
+  <div class="hospitals-grid">
+    <div class="hospital-card">
+      <div class="hospital-spec">Neurology</div>
+      <div class="hospital-name">Dr. Rao</div>
+      <span class="hospital-type">Neuro Specialist</span>
+    </div>
+    <div class="hospital-card">
+      <div class="hospital-spec">General Medicine</div>
+      <div class="hospital-name">Dr. Ameen Gwaha</div>
+      <span class="hospital-type">General Physician</span>
+    </div>
+    <div class="hospital-card">
+      <div class="hospital-spec">Urology</div>
+      <div class="hospital-name">Dr. Aqhil</div>
+      <span class="hospital-type">Prostate Specialist</span>
+    </div>
+    <div class="hospital-card">
+      <div class="hospital-spec">Orthopaedics</div>
+      <div class="hospital-name">Dr. Ayappa</div>
+      <span class="hospital-type">Orthopedic Specialist</span>
+    </div>
+    <div class="hospital-card">
+      <div class="hospital-spec">Orthopaedics</div>
+      <div class="hospital-name">Dr. Shoub</div>
+      <span class="hospital-type">Orthopedic Specialist</span>
+    </div>
+    <div class="hospital-card">
+      <div class="hospital-spec">Ophthalmology</div>
+      <div class="hospital-name">Dr. Agarwal</div>
+      <span class="hospital-type">Eye Hospital</span>
+    </div>
+    <div class="hospital-card">
+      <div class="hospital-spec">Dental</div>
+      <div class="hospital-name">Jafson & Metro Dental</div>
+      <span class="hospital-type">Dental Surgeons</span>
+    </div>
+    <div class="hospital-card">
+      <div class="hospital-spec">Cardiology</div>
+      <div class="hospital-name">Dr. Naveed</div>
+      <span class="hospital-type">Heart Surgeon</span>
+    </div>
+    <div class="hospital-card">
+      <div class="hospital-spec">Dermatology</div>
+      <div class="hospital-name">Dr. Gultaj & Dr. Nazia</div>
+      <span class="hospital-type">Skincare Specialists</span>
+    </div>
+    <div class="hospital-card">
+      <div class="hospital-spec">Multi-Specialty</div>
+      <div class="hospital-name">Sparsh Hospital</div>
+      <span class="hospital-type">Multi-Speciality</span>
+    </div>
+    <div class="hospital-card">
+      <div class="hospital-spec">Multi-Specialty</div>
+      <div class="hospital-name">Fortis Hospital</div>
+      <span class="hospital-type">Multi-Speciality</span>
+    </div>
+    <div class="hospital-card">
+      <div class="hospital-spec">Multi-Specialty</div>
+      <div class="hospital-name">Sakra Hospital</div>
+      <span class="hospital-type">Multi-Speciality</span>
+    </div>
+  </div>
+
+  <div class="book-banner">
+    <div>
+      <h3>Ready to Book an Appointment?</h3>
+      <p>Fill out our quick form and we will arrange everything for you.</p>
+    </div>
+    <a href="https://forms.gle/QcHp1kU2881iScAPA" target="_blank" class="btn-navy">Book Appointment</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">We're Here to <em>Help You</em></h2>
+      <p class="section-sub">Reach out via phone, WhatsApp, or our contact form. Our team responds within hours.</p>
+      <div class="contact-methods">
+        <div class="contact-method">
+          <div class="contact-method-icon">📞</div>
+          <div>
+            <div class="contact-method-label">Phone</div>
+            <div class="contact-method-value">+91 80736 68048</div>
+          </div>
+        </div>
+        <div class="contact-method">
+          <div class="contact-method-icon">💬</div>
+          <div>
+            <div class="contact-method-label">WhatsApp</div>
+            <div class="contact-method-value">+91 74111 09188</div>
+          </div>
+        </div>
+        <div class="contact-method">
+          <div class="contact-method-icon">📧</div>
+          <div>
+            <div class="contact-method-label">Email</div>
+            <div class="contact-method-value">albarakhatoursandtravels.co</div>
+          </div>
+        </div>
+        <div class="contact-method">
+          <div class="contact-method-icon">📍</div>
+          <div>
+            <div class="contact-method-label">Location</div>
+            <div class="contact-method-value">Bangalore, Karnataka, India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h3>Send Us a Message</h3>
+      <div id="contact-form-wrap">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="cf-name" placeholder="Full name">
+          </div>
+          <div class="form-group">
+            <label>Phone / WhatsApp</label>
+            <input type="tel" id="cf-phone" placeholder="+971 ...">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="cf-email" placeholder="you@email.com">
+        </div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select id="cf-service">
+            <option value="">— Select a service —</option>
+            <option>Doctor / Hospital Appointment</option>
+            <option>Hotel Booking</option>
+            <option>Service Apartment</option>
+            <option>Flight Booking</option>
+            <option>Visa Assistance</option>
+            <option>Taxi & Transport</option>
+            <option>Language Support</option>
+            <option>Foreign Exchange</option>
+            <option>Full Package (All Services)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Your Message</label>
+          <textarea id="cf-msg" placeholder="Tell us about your medical needs, travel dates, or any questions…"></textarea>
+        </div>
+        <button class="form-submit" onclick="submitForm()">Send Message</button>
+      </div>
+      <div class="form-success" id="form-success">
+        ✅ Thank you! We've received your message and will be in touch shortly via WhatsApp or email.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Al Barakha Medical Tourism</div>
+      <p>Your trusted partner for world-class healthcare in Bangalore, India. Serving international patients with dedication, care, and complete support.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#hospitals">Hospitals</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+918073668048">+91 80736 68048</a></li>
+        <li><a href="https://wa.me/917411109188" target="_blank">WhatsApp Us</a></li>
+        <li><a href="https://forms.gle/QcHp1kU2881iScAPA" target="_blank">Book Appointment</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Al Barakha Tours & Travels. All rights reserved.</p>
+    <p style="color: rgba(255,255,255,0.25);">Bangalore, Karnataka, India</p>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/917411109188" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<script>
+  function submitForm() {
+    const name = document.getElementById('cf-name').value.trim();
+    const email = document.getElementById('cf-email').value.trim();
+    const msg = document.getElementById('cf-msg').value.trim();
+    if (!name || !email || !msg) {
+      alert('Please fill in your name, email, and message.');
+      return;
+    }
+    document.getElementById('contact-form-wrap').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }
+
+  // Smooth active nav highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
+    });
+    navLinks.forEach(link => {
+      link.style.color = link.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+</script>
+</body>
+</html>
